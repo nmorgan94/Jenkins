@@ -15,7 +15,7 @@ node {
     // }
 
      stage('Docker Build') {
-    	agent any
+    	// agent any
       steps {
       	sh 'docker build -t shanem/spring-petclinic:latest .'
       }
