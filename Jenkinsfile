@@ -7,17 +7,18 @@ node {
         checkout scm
     }
 
-    stage('Build image') {
-        /* This builds the actual image; synonymous to
-         * docker build on the command line */
-        agent any
+    // stage('Build image') {
+    //     /* This builds the actual image; synonymous to
+    //      * docker build on the command line */
 
-        steps {
+    //      app = docker.build("releaseworks/hellonode")
+    // }
+
+     stage('Docker Build') {
+    	agent any
+      steps {
       	sh 'docker build -t shanem/spring-petclinic:latest .'
-        
       }
-
-        // app = docker.build("releaseworks/hellonode")
     }
 
     stage('Test image') {
