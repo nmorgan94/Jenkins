@@ -10,8 +10,14 @@ node {
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
+        agent any
 
-        app = docker.build("releaseworks/hellonode")
+        steps {
+      	sh 'docker build -t shanem/spring-petclinic:latest .'
+        
+      }
+
+        // app = docker.build("releaseworks/hellonode")
     }
 
     stage('Test image') {
